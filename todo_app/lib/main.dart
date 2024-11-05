@@ -7,7 +7,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => TaskModel(), // Cria uma instância de TaskModel como um ChangeNotifier.
-      child: MyApp(), // O widget MyApp é o filho do ChangeNotifierProvider.
+      child: const MyApp(), // O widget MyApp é o filho do ChangeNotifierProvider.
     ),
   );
 }
