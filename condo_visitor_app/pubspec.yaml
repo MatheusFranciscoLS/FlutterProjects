@@ -1,0 +1,28 @@
+name: controle_acesso_visitantes
+description: Um aplicativo para controle de entrada de visitantes com QR Code.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.17.0 <3.0.0'  # Ajuste conforme necessário
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.10.0
+  cloud_firestore: ^4.8.0
+  qr_code_scanner: ^1.0.0
+  geolocator: ^8.2.0
+  flutter_local_notifications: ^13.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # Adicione suas imagens ou outros assets aqui, se necessário

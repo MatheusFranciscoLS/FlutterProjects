@@ -10,7 +10,7 @@ class Task {
 
 // Classe que gerencia a lista de tarefas, estendendo ChangeNotifier para notificar mudanças.
 class TaskModel with ChangeNotifier {
-  List<Task> _tasks = []; // Lista privada que armazena as tarefas.oo
+  final List<Task> _tasks = []; // Lista privada que armazena as tarefas.oo
 
   // Getter para acessar a lista de taroefas.
   List<Task> get tasks => _tasks;

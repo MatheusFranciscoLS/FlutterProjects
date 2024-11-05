@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739669497675",
+    "project_id": "visitacaocondo",
+    "storage_bucket": "visitacaocondo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739669497675:android:4888c541af231cf973face",
+        "android_client_info": {
+          "package_name": "com.eduardo.condo_visitor_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZyH7FlRnWotnh0Rnd73YBUu9hbvu_k6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

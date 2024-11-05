@@ -6,6 +6,8 @@
     // Controlador para o campo de texto onde o usuário insere novas tarefas.
     final TextEditingController _controller = TextEditingController();
 
+  TodoScreen({super.key});
+
     @override
     Widget build(BuildContext context) {
       // Obtém a instância do TaskModel usando o Provider.
@@ -13,7 +15,7 @@
 
       return Scaffold(
         appBar: AppBar(
-          title: Text('Lista de Tarefas'), // Título da barra de navegação.
+          title: const Text('Lista de Tarefas'), // Título da barra de navegação.
         ),
         body: Column(
           children: [
@@ -25,7 +27,7 @@
                 decoration: InputDecoration(
                   labelText: 'Nova Tarefa', // Texto que aparece acima do campo.
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.add), // Ícone de adicionar.
+                    icon: const Icon(Icons.add), // Ícone de adicionar.
                     onPressed: () {
                       // Ao pressionar o botão, verifica se o campo não está vazio.
                       if (_controller.text.isNotEmpty) {
@@ -52,7 +54,7 @@
                       ),
                     ),
                     trailing: IconButton(
-                      icon: Icon(Icons.delete), // Ícone de deletar.
+                      icon: const Icon(Icons.delete), // Ícone de deletar.
                       onPressed: () => taskModel.removeTask(index), // Remove a tarefa ao pressionar o botão.
                     ),
                     onTap: () => taskModel.toggleTask(index), // Alterna o estado da tarefa ao clicar nela.

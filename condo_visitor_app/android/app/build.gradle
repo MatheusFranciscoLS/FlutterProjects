@@ -1,0 +1,40 @@
+plugins {
+    id "com.android.application"  // Plugin do Android para aplicativos
+    id "kotlin-android"  // Plugin Kotlin para o suporte à linguagem Kotlin
+}
+
+android {
+    namespace = "com.example.condo_visitor_app"  // Namespace único para o aplicativo Android
+
+    compileSdk = flutter.compileSdkVersion  // Usa a versão do SDK do Flutter
+
+    ndkVersion = flutter.ndkVersion  // Versão do NDK
+
+    defaultConfig {
+        applicationId = "com.example.condo_visitor_app"  // ID único do aplicativo
+        minSdk = flutter.minSdkVersion  // Mínimo SDK recomendado pelo Flutter
+        targetSdk = flutter.targetSdkVersion  // Versão alvo do SDK
+
+        versionCode = flutter.versionCode  // Versão do aplicativo para controle
+        versionName = flutter.versionName  // Nome da versão do aplicativo
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8  // Usar compatibilidade com Java 8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8  // Configuração do Kotlin para compatibilidade com Java 8
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Configuração para assinatura de builds de release (em modo debug)
+        }
+    }
+}
+
+flutter {
+    source = "../.."  // Caminho para o diretório raiz do Flutter
+}
