@@ -1,29 +1,46 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.condominio_qrcode"
+    compileSdk = 34
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.0'
-        classpath 'com.google.gms:google-services:4.3.15'
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.condominio_qrcode"
+        minSdk = 21
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+    // Adicionando namespace ao módulo do qr_code_scanner
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'qr_code_scanner') {
+                details.useTarget group: details.requested.group, name: details.requested.name, version: '1.0'
+            }
+        }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+flutter {
+    source = "../.."
 }

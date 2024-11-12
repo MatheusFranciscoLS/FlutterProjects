@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.condominio_app"
+    namespace = "com.example.condominio_qrcode"
     compileSdk = 34  // Atualize para 34
 
     compileOptions {
@@ -18,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.condominio_app"
+        applicationId = "com.example.condominio_qrcode"
         minSdk = 21
         targetSdk = 34  // Atualize para 34
         versionCode = 1
@@ -28,14 +28,6 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
-        }
-    }
-
-    configurations.all {
-        resolutionStrategy.eachDependency { details ->
-            if (details.requested.group == 'qr_code_scanner') {
-                details.useTarget group: details.requested.group, name: details.requested.name, version: '1.0'
-            }
         }
     }
 }
