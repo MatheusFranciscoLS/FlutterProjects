@@ -1,40 +1,45 @@
+// build.gradle (dentro da pasta app)
 plugins {
-    id "com.android.application"  // Plugin do Android para aplicativos
-    id "kotlin-android"  // Plugin Kotlin para o suporte à linguagem Kotlin
+    id 'com.android.application'
+    id 'com.google.gms.google-services' // Plugin do Firebase
 }
 
 android {
-    namespace = "com.example.condo_visitor_app"  // Namespace único para o aplicativo Android
-
-    compileSdk = flutter.compileSdkVersion  // Usa a versão do SDK do Flutter
-
-    ndkVersion = flutter.ndkVersion  // Versão do NDK
+    compileSdkVersion 33  // Ajuste conforme sua versão do SDK
 
     defaultConfig {
-        applicationId = "com.example.condo_visitor_app"  // ID único do aplicativo
-        minSdk = flutter.minSdkVersion  // Mínimo SDK recomendado pelo Flutter
-        targetSdk = flutter.targetSdkVersion  // Versão alvo do SDK
-
-        versionCode = flutter.versionCode  // Versão do aplicativo para controle
-        versionName = flutter.versionName  // Nome da versão do aplicativo
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8  // Usar compatibilidade com Java 8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8  // Configuração do Kotlin para compatibilidade com Java 8
+        applicationId "com.seu.pacote"
+        minSdkVersion 21  // Defina conforme seu caso
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug  // Configuração para assinatura de builds de release (em modo debug)
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
-flutter {
-    source = "../.."  // Caminho para o diretório raiz do Flutter
+dependencies {
+    // Importando o Firebase BoM para garantir versões compatíveis
+    implementation platform('com.google.firebase:firebase-bom:33.5.1')
+
+    // Adicionando Firebase Analytics
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Firebase Auth para autenticação
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Firebase Firestore para banco de dados em nuvem
+    implementation 'com.google.firebase:firebase-firestore'
+
+    // Firebase Crashlytics para relatórios de falhas
+    implementation 'com.google.firebase:firebase-crashlytics'
+
+    // Outras dependências Firebase podem ser adicionadas aqui
+    apply plugin: 'com.google.gms.google-services'
+
 }

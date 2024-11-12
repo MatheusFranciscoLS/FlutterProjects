@@ -1,20 +1,18 @@
+// build.gradle (nível raiz do projeto)
 buildscript {
     repositories {
-        google()  // Repositório para dependências do Google (Android SDK)
-        mavenCentral()  // Repositório central para outras dependências
+        google()  // Adicione o repositório do Google
+        mavenCentral()
     }
     dependencies {
-        // Android Gradle Plugin (AGP) versão 7.4.1 ou superior (dependendo da compatibilidade com o Flutter)
-        classpath 'com.android.tools.build:gradle:7.4.1'
-        
-        // Plugin Kotlin (deve ser compatível com a versão usada no seu código)
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'
+        classpath 'com.android.tools.build:gradle:7.5.0' // Versão do plugin do Android Studio
+        classpath 'com.google.gms:google-services:4.3.15' // Plugin do Google Services (Firebase)
     }
 }
 
 allprojects {
     repositories {
-        google()  // Repositório do Google para bibliotecas Android
-        mavenCentral()  // Repositório central para dependências
+        google()  // Repositório do Google
+        mavenCentral()
     }
 }
