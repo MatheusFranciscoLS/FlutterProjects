@@ -1,5 +1,0 @@
-package com.example.condo_visitor_app
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity: FlutterActivity()
